@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="#FBF4EA">
+
+
+    <EditText
+        android:id="@+id/etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-posta"
+        android:inputType="textEmailAddress"
+        android:fontFamily="@font/playfair_display"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Şifre"
+        android:inputType="textPassword"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/playfair_display"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kullanıcı Tipi Seçiniz:"
+        android:layout_marginTop="24dp"
+        android:textStyle="bold"
+        android:fontFamily="@font/playfair_display"/>
+
+    <RadioGroup
+        android:id="@+id/rgUserType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <RadioButton
+            android:id="@+id/rbModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Model"
+            android:fontFamily="@font/playfair_display"/>
+
+        <RadioButton
+            android:id="@+id/rbPhotographer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fotoğrafçı"
+            android:fontFamily="@font/playfair_display"/>
+
+        <RadioButton
+            android:id="@+id/rbAgency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ajans"
+            android:fontFamily="@font/playfair_display"/>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="#715050"
+        android:text="Kayıt Ol"
+        app:cornerRadius="5dp"/>
+</LinearLayout>
