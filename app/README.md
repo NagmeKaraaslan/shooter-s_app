@@ -1,5 +1,5 @@
 # Shooter's
-yaratıcı: Nağme Karaaaslan
+creater: Nağme Karaaaslan
 **Mobil Programlama Dersi — Final Projesi**
 Veritabanı: Firebase Realtime Database + Firebase Storage  
 Kimlik Doğrulama: Firebase Authentication
