@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#715050"
         android:fontFamily="@font/playfair_display"
-        android:text="Kayıt sayfası"
+        android:text="Sign Up Pge"
         android:textColor="#FBF4EA"
         app:cornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,6 +38,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.106" />
+
+    <Button
+        android:id="@+id/signBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#715050"
+        android:fontFamily="@font/playfair_display"
+        android:text="Sıgn In page"
+        android:textColor="#FBF4EA"
+        app:cornerRadius="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.122" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

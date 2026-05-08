@@ -24,9 +24,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         val button = findViewById<Button>(R.id.button)
+        val buttonS = findViewById<Button>(R.id.signBtn)
 
         button.setOnClickListener {
-            val goToRegister = Intent(this, RegisterActivity::class.java)
+            val goToRegister = Intent(this, registerActivity::class.java)
+            startActivity(goToRegister)
+        }
+
+        buttonS.setOnClickListener {
+            val goToRegister = Intent(this, signInActivity::class.java)
             startActivity(goToRegister)
         }
     }

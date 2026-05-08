@@ -1,6 +1,7 @@
 package com.nagmekaraaslan.shooters_app
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,10 +12,7 @@ class modelProfile : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_model_profile)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        val kullaniciTipi = intent.getStringExtra("KULLANICI_TIPI")
+        Toast.makeText(this, "Hoşgeldin, $kullaniciTipi!", Toast.LENGTH_LONG).show()
     }
 }

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.INTERNET"/>;
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Shooters_app">
+        <activity
+            android:name=".agencyProfile"
+            android:exported="false" />
+        <activity
+            android:name=".photographerProfile"
+            android:exported="false" />
+        <activity
+            android:name=".signInActivity"
+            android:exported="false" />
         <activity
             android:name=".modelProfile"
             android:exported="false" />

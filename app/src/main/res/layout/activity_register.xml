@@ -52,14 +52,14 @@
             android:id="@+id/rbPhotographer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fotoğrafçı"
+            android:text="Photographer"
             android:fontFamily="@font/playfair_display"/>
 
         <RadioButton
             android:id="@+id/rbAgency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ajans"
+            android:text="Agency"
             android:fontFamily="@font/playfair_display"/>
 
     </RadioGroup>
