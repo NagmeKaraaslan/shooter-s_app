@@ -9,7 +9,7 @@
     android:padding="20dp"
     tools:context=".modelProfile">
 
-    <!-- Üst kısım- fotoğraf ve ön bilgilerin yatay hşzalanması-->
+    <!-- Üst kısım - fotoğraf ve ön bilgiler -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardProfile"
         android:layout_width="90dp"
@@ -52,35 +52,35 @@
         app:layout_constraintTop_toTopOf="@id/cardProfile"
         app:layout_constraintBottom_toBottomOf="@id/cardProfile">
 
-            <TextView
-                android:id="@+id/tvUserType"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="user_type"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:fontFamily="@font/playfair_display"
-                android:textColor="#1C1C1C" />
+        <TextView
+            android:id="@+id/tvUserType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Model"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="#1C1C1C" />
 
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name:"
-                android:textSize="13sp"
-                android:fontFamily="@font/playfair_display"
-                android:textColor="#1C1C1C"
-                android:layout_marginTop="4dp" />
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name exmp."
+            android:textSize="13sp"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="#1C1C1C"
+            android:layout_marginTop="4dp" />
 
-            <TextView
-                android:id="@+id/tvSurname"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Surname:"
-                android:textSize="13sp"
-                android:fontFamily="@font/playfair_display"
-                android:textColor="#1C1C1C"
-                android:layout_marginTop="2dp" />
+        <TextView
+            android:id="@+id/tvSurname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Surname: exmp."
+            android:textSize="13sp"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="#1C1C1C"
+            android:layout_marginTop="2dp" />
     </LinearLayout>
 
     <!-- İletişim bilgileri -->
@@ -88,7 +88,7 @@
         android:id="@+id/tvEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="E-mail address:  example@ex.com"
+        android:text="E-mail address: example@ex.com"
         android:textSize="12sp"
         android:fontFamily="@font/playfair_display"
         android:textColor="#1C1C1C"
@@ -96,6 +96,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardProfile"/>
 
+    <!-- Telefon ve Permission butonu yan yana -->
     <TextView
         android:id="@+id/tvPhone"
         android:layout_width="wrap_content"
@@ -108,7 +109,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvEmail"/>
 
-    <!-- Sekmeler -->
+    <!-- Sekmeler - tvPhone'un ALTINDA -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPermission"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginStart="64dp"
+        android:backgroundTint="#A08070"
+        android:fontFamily="@font/playfair_display"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="0dp"
+        android:text="Get permission to see number"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="8sp"
+        app:cornerRadius="6dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvPhone"
+        app:layout_constraintStart_toEndOf="@id/tvPhone"
+        app:layout_constraintTop_toTopOf="@id/tvPhone"
+        app:layout_constraintVertical_bias="0.0" />
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
         android:layout_width="0dp"
@@ -121,9 +145,22 @@
         app:tabPaddingStart="0dp"
         app:tabPaddingEnd="0dp"
         app:tabBackground="@android:color/transparent"
+        app:tabTextAppearance="@style/TabTextStyle"
+        app:tabMode="fixed"
+        app:tabGravity="fill"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPhone"/>
 
+    <!-- VIEWPAGER2 - TabLayout'ın ALTINDA, ekranın sonuna kadar -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

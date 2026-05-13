@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBF4EA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="#1C1C1C"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Info"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="#6D4C4C"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etSurname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Surname"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone"
+            android:inputType="phone"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#D9D9D9"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Detailed Infos"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="#6D4C4C"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/etAgency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Agency"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etBasedIn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Based In"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Age"
+            android:inputType="number"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#D9D9D9"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Body Measurements (cm)"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="#6D4C4C"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/etHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Height (cm)"
+            android:inputType="number"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Weight (kg)"
+            android:inputType="number"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etWaist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Waist (cm)"
+            android:inputType="number"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etChest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Chest (cm)"
+            android:inputType="number"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etHips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Hips (cm)"
+            android:inputType="number"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etLegLength"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Leg Length (cm)"
+            android:inputType="number"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="20dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#D9D9D9"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Biography"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="#6D4C4C"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/etBiography"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tell us about yourself..."
+            android:inputType="textMultiLine"
+            android:minLines="4"
+            android:gravity="top"
+            android:fontFamily="@font/playfair_display"
+            android:backgroundTint="#6D4C4C"
+            android:layout_marginBottom="24dp"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/playfair_display"
+            android:textAllCaps="false"
+            android:backgroundTint="#6D4C4C"
+            app:cornerRadius="8dp"
+            xmlns:app="http://schemas.android.com/apk/res-auto"/>
+
+    </LinearLayout>
+</ScrollView>

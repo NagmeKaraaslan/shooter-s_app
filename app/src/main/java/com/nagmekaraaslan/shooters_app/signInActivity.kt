@@ -49,7 +49,9 @@ class signInActivity : AppCompatActivity() {
                                         "Model" -> Intent(this, modelProfile::class.java)
                                         "Photographer" -> Intent(this, photographerProfile::class.java)
                                         "Agency" -> Intent(this, agencyProfile::class.java)
-                                        else -> Intent(this, MainActivity::class.java)
+                                        else -> { Toast.makeText(this, "Error: role could not find ($role)", Toast.LENGTH_LONG).show()
+                                            Intent(this, MainActivity::class.java)
+                                        }
                                     }
                                     intent.putExtra("USER_TYPE", role)
                                     startActivity(intent)

@@ -13,7 +13,7 @@
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="E-posta"
+        android:hint="E-mail"
         android:inputType="textEmailAddress"
         android:fontFamily="@font/playfair_display"/>
 
@@ -21,7 +21,7 @@
         android:id="@+id/etPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Şifre"
+        android:hint="Password"
         android:inputType="textPassword"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/playfair_display"/>
@@ -29,10 +29,10 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kullanıcı Tipi Seçiniz:"
         android:layout_marginTop="24dp"
-        android:textStyle="bold"
-        android:fontFamily="@font/playfair_display"/>
+        android:fontFamily="@font/playfair_display"
+        android:text="Choose your user type:"
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/rgUserType"
@@ -73,3 +73,5 @@
         android:text="Kayıt Ol"
         app:cornerRadius="5dp"/>
 </LinearLayout>
+
+

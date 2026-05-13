@@ -1,6 +1,8 @@
 package com.nagmekaraaslan.shooters_app
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioButton
@@ -9,26 +11,26 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import android.content.Intent
-import android.util.Log
 
 class registerActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
-    fun isPasswordValid(password: String): Boolean {
+    // Şifre fonksiyonu
+    private fun isPasswordValid(password: String): Boolean {
         val hasUpper = password.any { it.isUpperCase() }
         val hasLower = password.any { it.isLowerCase() }
         val hasDigit = password.any { it.isDigit() }
         val hasPunctuation = password.any { !it.isLetterOrDigit() }
-        android.util.Log.d("PASSWORD", "Upper:$hasUpper Lower:$hasLower Digit:$hasDigit Punct:$hasPunctuation")
+        Log.d("PASSWORD_CHECK", "Upper:$hasUpper Lower:$hasLower Digit:$hasDigit Punct:$hasPunctuation")
         return hasUpper && hasLower && hasDigit && hasPunctuation
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-        Toast.makeText(this, "Kayıt sayfasına hoş geldiniz.", Toast.LENGTH_SHORT).show()
+
+        Toast.makeText(this, "Welcome to Register Page", Toast.LENGTH_SHORT).show()
 
         auth = FirebaseAuth.getInstance()
 
@@ -41,48 +43,65 @@ class registerActivity : AppCompatActivity() {
             val email = etEmail.text.toString().trim()
             val password = etPassword.text.toString().trim()
             val selectedTypeId = rgUserType.checkedRadioButtonId
-            val selectedType = findViewById<RadioButton>(selectedTypeId)?.text.toString()
 
-            if (email.isNotEmpty() && password.isNotEmpty() && selectedTypeId != -1) {
+            // 1. ADIM: Rol seçimi kontrolü (Hayalet veriyi engelleme)
+            if (selectedTypeId == -1) {
+                Toast.makeText(this, "Please select a user type!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // 2. ADIM: Seçilen ID'ye göre KEY ataması
+            val selectedRole = when (selectedTypeId) {
+                R.id.rbModel -> "Model"
+                R.id.rbPhotographer -> "Photographer"
+                R.id.rbAgency -> "Agency"
+                else -> {
+                    // Güvenlik önlemi: Eğer beklenmedik bir durum olursa kaydı engelle
+                    Toast.makeText(this, "Invalid role selection!", Toast.LENGTH_SHORT).show()
+                    return@setOnClickListener
+                }
+            }
+
+            // 3. ADIM: Boş alan ve şifre validasyon kontrolü
+            if (email.isNotEmpty() && password.isNotEmpty()) {
 
                 if (!isPasswordValid(password)) {
-                    Toast.makeText(this, "Şifre büyük harf, küçük harf, rakam ve noktalama işareti içermelidir.", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Password must include uppercase, lowercase, digits and punctuation.", Toast.LENGTH_LONG).show()
                     return@setOnClickListener
                 }
 
+                // 4. ADIM: Firebase Authentication ile kayıt
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             val userId = auth.currentUser?.uid
 
-                            android.util.Log.d("REGISTER", "userId: $userId")
-                            android.util.Log.d("REGISTER", "currentUser: ${auth.currentUser}")
-
                             if (userId != null) {
+                                // 5. ADIM: Realtime Database'e İngilizce keyler ile kayıt
                                 val database = FirebaseDatabase.getInstance("https://shooter-s-default-rtdb.firebaseio.com/").reference
-                                database.child("Users").child(userId).child("role").setValue(selectedType)
+
+                                // "Users" -> "UID" -> "role" : "Model/Photographer/Agency"
+                                database.child("Users").child(userId).child("role").setValue(selectedRole)
                                     .addOnSuccessListener {
-                                        Log.d("KAYIT", "Rol kaydedildi: $selectedType, UID: $userId")
-                                        android.util.Log.d("REGISTER", "Role saved successfully")
-                                        Toast.makeText(this, "Register Successful!", Toast.LENGTH_SHORT).show()
+                                        Log.d("REGISTER_SUCCESS", "Role saved: $selectedRole for UID: $userId")
+                                        Toast.makeText(this, "Registration Successful!", Toast.LENGTH_SHORT).show()
+
+                                        // Giriş sayfasına yönlendir
                                         val intent = Intent(this@registerActivity, signInActivity::class.java)
-                                        intent.putExtra("USER_TYPE", selectedType)
                                         startActivity(intent)
                                         finish()
                                     }
-                                    .addOnFailureListener {
-                                        android.util.Log.d("REGISTER", "Role save failed: ${it.message}")
-                                        Toast.makeText(this, "DB Error: ${it.message}", Toast.LENGTH_LONG).show()
+                                    .addOnFailureListener { e ->
+                                        Log.e("REGISTER_ERROR", "DB Error: ${e.message}")
+                                        Toast.makeText(this, "Database Error: ${e.message}", Toast.LENGTH_LONG).show()
                                     }
-                            } else {
-                                Toast.makeText(this, "Kullanıcı ID alınamadı.", Toast.LENGTH_LONG).show()
                             }
                         } else {
-                            Toast.makeText(this, "Hata: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "Auth Error: ${task.exception?.message}", Toast.LENGTH_LONG).show()
                         }
                     }
             } else {
-                Toast.makeText(this, "Lütfen tüm alanları doldurun ve bir rol seçin.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             }
         }
     }

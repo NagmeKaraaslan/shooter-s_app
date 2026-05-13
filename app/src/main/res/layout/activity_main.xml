@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#715050"
         android:fontFamily="@font/playfair_display"
-        android:text="Sign Up Pge"
+        android:text="Sign Up Page"
         android:textColor="#FBF4EA"
         app:cornerRadius="5dp"
         app:layout_constraintBottom_toBottomOf="parent"

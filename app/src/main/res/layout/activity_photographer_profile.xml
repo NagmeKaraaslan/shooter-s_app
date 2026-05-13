@@ -1,10 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FBF4EA"
+    android:padding="20dp"
     tools:context=".photographerProfile">
+
+    <!-- Üst kısım - fotoğraf ve ön bilgiler -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardProfile"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="#6D4C4C"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            android:background="#6D4C4C"/>
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/btnEdit"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/vector"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:tint="#6D4C4C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <LinearLayout
+        android:id="@+id/llTextInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintStart_toEndOf="@id/cardProfile"
+        app:layout_constraintEnd_toStartOf="@id/btnEdit"
+        app:layout_constraintTop_toTopOf="@id/cardProfile"
+        app:layout_constraintBottom_toBottomOf="@id/cardProfile">
+
+        <TextView
+            android:id="@+id/tvUserType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Photographer"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="#1C1C1C" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/playfair_display"
+            android:text="Name: exmp."
+            android:textColor="#1C1C1C"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tvSurname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Surname: exmp."
+            android:textSize="13sp"
+            android:fontFamily="@font/playfair_display"
+            android:textColor="#1C1C1C"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- İletişim bilgileri -->
+    <TextView
+        android:id="@+id/tvEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="E-mail address: example@ex.com"
+        android:textSize="12sp"
+        android:fontFamily="@font/playfair_display"
+        android:textColor="#1C1C1C"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardProfile"/>
+
+    <TextView
+        android:id="@+id/tvPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/playfair_display"
+        android:text="Phone num.:  +90 xxxxxxx"
+        android:textColor="#1C1C1C"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvEmail" />
+
+    <!-- Sekmeler -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:tabTextColor="#9E9E9E"
+        app:tabSelectedTextColor="#1C1C1C"
+        app:tabIndicatorColor="#6D4C4C"
+        app:tabIndicatorHeight="2dp"
+        app:tabPaddingStart="0dp"
+        app:tabPaddingEnd="0dp"
+        app:tabBackground="@android:color/transparent"
+        app:tabTextAppearance="@style/TabTextStyle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvPhone"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnPermission"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginStart="64dp"
+        android:backgroundTint="#A08070"
+        android:fontFamily="@font/playfair_display"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="0dp"
+        android:text="Get permission to see number"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="8sp"
+        app:cornerRadius="6dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvPhone"
+        app:layout_constraintStart_toEndOf="@id/tvPhone"
+        app:layout_constraintTop_toTopOf="@id/tvPhone"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <!-- VIEWPAGER2 - Kaydırarak geçiş -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayout"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
