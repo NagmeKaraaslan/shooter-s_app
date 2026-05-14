@@ -78,7 +78,7 @@ class registerActivity : AppCompatActivity() {
 
                             if (userId != null) {
                                 // 5. ADIM: Realtime Database'e İngilizce keyler ile kayıt
-                                val database = FirebaseDatabase.getInstance("https://shooter-s-default-rtdb.firebaseio.com/").reference
+                                val database = FirebaseDatabase.getInstance("https://shooter-s-7b8e2-default-rtdb.firebaseio.com/").reference
 
                                 // "Users" -> "UID" -> "role" : "Model/Photographer/Agency"
                                 database.child("Users").child(userId).child("role").setValue(selectedRole)

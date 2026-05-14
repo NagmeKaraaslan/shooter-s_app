@@ -17,10 +17,10 @@ import com.google.firebase.database.ValueEventListener
 import com.nagmekaraaslan.shooters_app.MainActivity
 import com.nagmekaraaslan.shooters_app.R
 
-class DetailedInfosFragment : Fragment() {
+class AgencyInfosFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_detailed_infos, container, false)
+        return inflater.inflate(R.layout.fragment_agency_infos, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class DetailedInfosFragment : Fragment() {
         val db = FirebaseDatabase.getInstance("https://shooter-s-7b8e2-default-rtdb.firebaseio.com/").reference
 
         val fabLogout = view.findViewById<FloatingActionButton>(R.id.fabLogout)
-        fabLogout.setOnClickListener {
+        fabLogout?.setOnClickListener {
             auth.signOut()
             Toast.makeText(context, "Logged out successfully", Toast.LENGTH_SHORT).show()
             val intent = Intent(requireActivity(), MainActivity::class.java)
@@ -42,17 +42,10 @@ class DetailedInfosFragment : Fragment() {
         db.child("Users").child(userId).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (!isAdded) return
-
-                view.findViewById<TextView>(R.id.tvAjans).text = "Agency:   ${snapshot.child("agency").value ?: "—"}"
-                view.findViewById<TextView>(R.id.tvBasedIn).text = "Based In:   ${snapshot.child("basedIn").value ?: "—"}"
-                view.findViewById<TextView>(R.id.tvYas).text = "Age:   ${snapshot.child("age").value ?: "—"}"
-                view.findViewById<TextView>(R.id.tvBoy).text = "Height:   ${snapshot.child("height").value ?: "—"} cm"
-                view.findViewById<TextView>(R.id.tvKilo).text = "Weight:   ${snapshot.child("weight").value ?: "—"} kg"
-                view.findViewById<TextView>(R.id.tvBel).text = "Waist:   ${snapshot.child("waist").value ?: "—"} cm"
-                view.findViewById<TextView>(R.id.tvGogus).text = "Chest:   ${snapshot.child("chest").value ?: "—"} cm"
-                view.findViewById<TextView>(R.id.tvKalca).text = "Hips:   ${snapshot.child("hips").value ?: "—"} cm"
-                view.findViewById<TextView>(R.id.tvBacakBoyu).text = "Leg Length:   ${snapshot.child("legLength").value ?: "—"} cm"
-                view.findViewById<TextView>(R.id.tvBiyografi).text = "${snapshot.child("biography").value ?: "—"}"
+                
+                view.findViewById<TextView>(R.id.tvAgencyCeo).text = snapshot.child("agencyCeo").value?.toString() ?: "—"
+                view.findViewById<TextView>(R.id.tvBasedIn).text = snapshot.child("basedIn").value?.toString() ?: "—"
+                view.findViewById<TextView>(R.id.tvAgeRange).text = snapshot.child("ageRange").value?.toString() ?: "—"
             }
 
             override fun onCancelled(error: DatabaseError) {}

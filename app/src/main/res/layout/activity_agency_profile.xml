@@ -3,11 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FBF4EA"
     android:padding="20dp"
-    tools:context=".agencyProfileProfile">
+    tools:context=".agencyProfile">
 
     <!-- Üst kısım - fotoğraf ve ön bilgiler -->
     <androidx.cardview.widget.CardView

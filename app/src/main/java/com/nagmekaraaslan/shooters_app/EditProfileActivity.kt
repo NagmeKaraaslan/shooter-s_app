@@ -14,7 +14,7 @@ import com.google.firebase.database.ValueEventListener
 class EditProfileActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private val databaseUrl = "https://shooter-s-default-rtdb.firebaseio.com/"
+    private val databaseUrl = "https://shooter-s-7b8e2-default-rtdb.firebaseio.com/"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

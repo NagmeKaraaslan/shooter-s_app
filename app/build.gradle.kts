@@ -37,15 +37,17 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    // Firebase - BOM versiyon yönetir, ayrıca yazmana gerek yok
+    // Firebase
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-storage-ktx")
     implementation("com.google.firebase:firebase-database-ktx")
+    
+    // UI Components
     implementation("androidx.viewpager2:viewpager2:1.1.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     implementation("androidx.cardview:cardview:1.0.0")
-    //implementation ("github.com.bumptech.glide:glide:4.16.0")
+    
+    // Glide - Resim yükleme kütüphanesi
+    implementation(libs.glide)
 }

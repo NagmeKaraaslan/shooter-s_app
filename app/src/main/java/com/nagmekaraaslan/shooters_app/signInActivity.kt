@@ -31,15 +31,15 @@ class signInActivity : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                     android.util.Log.d("SIGNIN", "isSuccessful: ${task.isSuccessful}")
                     android.util.Log.d("SIGNIN", "exception: ${task.exception?.message}")
-                    Toast.makeText(this, "Sonuç: ${task.isSuccessful} - ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                    
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
 
-                    if (task.isSuccessful) { //firebase sunucularına giden (Az önce girilmiş olan) eposta ve şifre doğru mu?
-
-                        val user = task.result?.user //Kullanıcı verisi paketlenip bize ulaştı mı?
-                        val userId = user?.uid //Bu kullanıcının kimlik numarası okunabiliyor mu? ki usertype ı ayırabilelim
+                        val user = task.result?.user
+                        val userId = user?.uid
 
                         if (userId != null) {
-                            val database = FirebaseDatabase.getInstance("https://shooter-s-default-rtdb.firebaseio.com/").reference
+                            val database = FirebaseDatabase.getInstance("https://shooter-s-7b8e2-default-rtdb.firebaseio.com/").reference
 
                             // Kullanıcının rolünü veritabanından oku
                             database.child("Users").child(userId).child("role").get()
@@ -49,7 +49,8 @@ class signInActivity : AppCompatActivity() {
                                         "Model" -> Intent(this, modelProfile::class.java)
                                         "Photographer" -> Intent(this, photographerProfile::class.java)
                                         "Agency" -> Intent(this, agencyProfile::class.java)
-                                        else -> { Toast.makeText(this, "Error: role could not find ($role)", Toast.LENGTH_LONG).show()
+                                        else -> { 
+                                            Toast.makeText(this, "Error: role could not find ($role)", Toast.LENGTH_LONG).show()
                                             Intent(this, MainActivity::class.java)
                                         }
                                     }
@@ -61,12 +62,10 @@ class signInActivity : AppCompatActivity() {
                                     Toast.makeText(this, "Failed to read user role: ${it.message}", Toast.LENGTH_LONG).show()
                                 }
                         } else {
-                            // userId'nin alınamadığı durum (isSuccessful true olsa bile güvenlik için)
                             Toast.makeText(this, "User ID could not be retrieved.", Toast.LENGTH_LONG).show()
                         }
 
                     } else {
-                        // Giriş başarısız olduğunda (Şifre yanlış vb.) gösterilecek hata
                         Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_LONG).show()
                     }
                 }

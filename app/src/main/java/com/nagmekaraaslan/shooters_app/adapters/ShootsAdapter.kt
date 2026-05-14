@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.nagmekaraaslan.shooters_app.R
 
 class ShootsAdapter(private val photoList: MutableList<Uri>) : RecyclerView.Adapter<ShootsAdapter.ShootViewHolder>() {
@@ -20,7 +21,11 @@ class ShootsAdapter(private val photoList: MutableList<Uri>) : RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ShootViewHolder, position: Int) {
-        holder.imageView.setImageURI(photoList[position])
+        // Glide kullanarak resmi yükle (Daha performanslı ve Pinterest düzenine uygun)
+        Glide.with(holder.itemView.context)
+            .load(photoList[position])
+            .placeholder(R.drawable.ic_launcher_background) // Yüklenirken görünecek resim
+            .into(holder.imageView)
     }
 
     override fun getItemCount(): Int = photoList.size

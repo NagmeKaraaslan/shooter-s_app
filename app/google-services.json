@@ -1,14 +1,14 @@
 {
   "project_info": {
-    "project_number": "478677357330",
-    "firebase_url": "https://shooter-s-default-rtdb.firebaseio.com",
-    "project_id": "shooter-s",
-    "storage_bucket": "shooter-s.firebasestorage.app"
+    "project_number": "880368536289",
+    "firebase_url": "https://shooter-s-7b8e2-default-rtdb.firebaseio.com",
+    "project_id": "shooter-s-7b8e2",
+    "storage_bucket": "shooter-s-7b8e2.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:478677357330:android:065a58f52b03fa3d6e59cb",
+        "mobilesdk_app_id": "1:880368536289:android:e77829b1966f38c54c85a0",
         "android_client_info": {
           "package_name": "com.nagmekaraaslan.shooters_app"
         }
@@ -16,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBVIhEkgxd-2VelSJSy7CoEp8oqVthxNbQ"
+          "current_key": "AIzaSyC_yRqLN-ALzuJ7H0cozorYPHnm1fK4f8o"
         }
       ],
       "services": {

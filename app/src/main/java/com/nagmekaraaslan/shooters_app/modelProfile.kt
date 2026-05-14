@@ -51,7 +51,7 @@ class modelProfile : AppCompatActivity() {
 
         // Firebase'den verileri oku
         val userId = auth.currentUser?.uid ?: return
-        val db = FirebaseDatabase.getInstance("https://shooter-s-default-rtdb.firebaseio.com/").reference
+        val db = FirebaseDatabase.getInstance("https://shooter-s-7b8e2-default-rtdb.firebaseio.com/").reference
 
         db.child("Users").child(userId).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
